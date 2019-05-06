@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
+ * TODO Delete package and extended class when upload this to the site.
  * 알고리즘 사이트에 정답 제출할 때 패키지와 extends Algorithm 삭제 후 제출
  */
 public class Main extends Algorithm {
@@ -51,15 +52,15 @@ public class Main extends Algorithm {
 			
 			for(int row = 0; row < areaSize; row++) {
 				for(int col = 0; col < areaSize; col++) {
-					if(safeArea[row][col] != 0) {	// 이미 탐색된 영역
+					if(safeArea[row][col] != 0) {	// already searched // 이미 탐색된 영역
 						continue;
 					}
 					if(floodedHeight >= inputArea[row][col] ) {	
-						safeArea[row][col] = 'X';		// 잠긴 지역
+						safeArea[row][col] = 'X';		// flooded area // 잠긴 지역
 						continue;
 					}
 					
-					findSafeArea(row, col, floodedHeight);	// 탐색시작
+					findSafeArea(row, col, floodedHeight);	// start searching // 탐색시작
 					safeAreaCnt++;
 				}
 			}
@@ -70,39 +71,38 @@ public class Main extends Algorithm {
 			}
 			
 			if(safeAreaCnt > maxSafeAreaCnt) {
-				maxSafeAreaCnt = safeAreaCnt;	// 최대값 갱신
+				maxSafeAreaCnt = safeAreaCnt;	// update max value // 최대값 갱신
 			}
 
 			
-			if(safeAreaCnt == 0	) break;	// 모두 잠기면 그만			
+			if(safeAreaCnt == 0	) break;	// stop when whole area is flooded // 모두 잠기면 그만			
 		}
 		return String.valueOf(maxSafeAreaCnt);
 	}
 	
 private void  findSafeArea(int row, int col, int floodedHeight) {
 		
-		// 영역을 벗어나면 중단
+		// stop where is out of the area // 영역을 벗어나면 중단
 		if(row < 0) return;	
 		if(row == areaSize) return;
 		if(col < 0) return;
 		if(col == areaSize) return;
 
-		//TODO 여기가 문제...  floodedHeight = 4인 경우 아래로 연결되는 영역을 찾지를 못한다.
 		if(safeArea[row][col] != 0) {
-			return;		// 이미 탐색한 지역이면 중단 
+			return;		// stop where is searched already  // 이미 탐색한 지역이면 중단 
 		}
 		
 		if(inputArea[row][col] <= floodedHeight) {
-			safeArea[row][col] = 'X';	// 침수지역
-			return;								// 탐색 중단
+			safeArea[row][col] = 'X';	// flooded area // 침수지역
+			return;								// stop searching // 탐색 중단
 		}
 		
 		
-		safeArea[row][col] = 'O';	// 안전영역
+		safeArea[row][col] = 'O';	// safe area // 안전영역
 		
 		
 		
-		// 미탐색 지역 탐색
+		// search where isn't yet // 미탐색 지역 탐색
 		findSafeArea(row+1, col, floodedHeight);
 		findSafeArea(row-1, col, floodedHeight);
 		findSafeArea(row, col+1, floodedHeight);
@@ -110,9 +110,8 @@ private void  findSafeArea(int row, int col, int floodedHeight) {
 	}
 	
 	/**
+	 * main method for upload to the site
 	 * 알고리즘 사이트 정답제출용 메인메소드
-	 * @param args
-	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args)  {
 		Main main = new Main();
@@ -120,6 +119,7 @@ private void  findSafeArea(int row, int col, int floodedHeight) {
 	}	
 	
 	/**
+	 * print input data for debugging
 	 * 자체테스트용 입력값 찍기
 	 */
 	public void printInput() {
@@ -132,6 +132,7 @@ private void  findSafeArea(int row, int col, int floodedHeight) {
 		System.out.println();
 	}
 	/**
+	 * print processed data for debugging
 	 * 자체테스트용 중간값 찍기
 	 */
 	public void printProcess() {
