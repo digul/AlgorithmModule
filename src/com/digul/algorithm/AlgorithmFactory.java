@@ -4,16 +4,16 @@ import java.io.FileNotFoundException;
 
 public  enum AlgorithmFactory {
 	FLOODED_AREA {
-		public Algorithm getAlgorithm() {
-			try {
-				return new com.digul.algorithm.flooded_area.Main("D:\\file\\flooded_sample.txt");
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				return null;
-			}
+		public Algorithm getAlgorithm() throws FileNotFoundException {
+			return new com.digul.algorithm.flooded_area.Main("D:\\file\\flooded_sample.txt");
+		}
+	},
+	WORM_VIRUS {
+		public Algorithm getAlgorithm() throws FileNotFoundException {
+			return new com.digul.algorithm.worm_virus.Main("D:\\file\\worm_virus.txt");
 		}
 	};
 	
-	abstract public Algorithm getAlgorithm();
+	abstract public Algorithm getAlgorithm() throws FileNotFoundException;
 
 }

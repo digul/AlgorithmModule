@@ -10,11 +10,11 @@ import java.util.Scanner;
  * 알고리즘 사이트에 정답 제출할 때 패키지와 extends Algorithm 삭제 후 제출
  */
 public class Main extends Algorithm {
+	private boolean debugMode = false;
 	private final int maxHeight = 100;
 	private int areaSize;
 	private int[][] inputArea;
 	private char[][] safeArea;
-	private boolean debugMode = false;
 
 	public Main(String filePath) throws FileNotFoundException {
 		debugMode = true;
