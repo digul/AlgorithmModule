@@ -41,7 +41,7 @@ public class Main extends Algorithm {
 		}
 	}
 
-	public String calculate() {
+	public void calculate() {
 		
 		 int maxSafeAreaCnt = 1;
 		 
@@ -77,7 +77,7 @@ public class Main extends Algorithm {
 			
 			if(safeAreaCnt == 0	) break;	// stop when whole area is flooded // 모두 잠기면 그만			
 		}
-		return String.valueOf(maxSafeAreaCnt);
+		System.out.println(maxSafeAreaCnt);
 	}
 	
 private void  findSafeArea(int row, int col, int floodedHeight) {
@@ -115,7 +115,7 @@ private void  findSafeArea(int row, int col, int floodedHeight) {
 	 */
 	public static void main(String[] args)  {
 		Main main = new Main();
-		System.out.println(main.calculate());
+		main.calculate();
 	}	
 	
 	/**

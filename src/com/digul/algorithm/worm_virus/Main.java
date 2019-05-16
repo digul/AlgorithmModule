@@ -63,9 +63,9 @@ public class Main extends Algorithm {
 
 	}
 
-	public String calculate() {
+	public void calculate() {
 		countInfected(FIRST_COM_NO);
-		return String.valueOf(countedCom.size() - 1);	// count except first computer // 1번컴퓨터는 제외하고 센다.
+		System.out.println(countedCom.size() - 1);	// count except first computer // 1번컴퓨터는 제외하고 센다.
 	}
 	
 	private void countInfected(int comNo) {
@@ -118,7 +118,7 @@ public class Main extends Algorithm {
 	 */
 	public static void main(String[] args)  {
 		Main main = new Main();
-		System.out.println(main.calculate());
+		main.calculate();
 	}	
 
 }

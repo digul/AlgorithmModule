@@ -62,7 +62,7 @@ public class Main extends Algorithm {
 		}
 	}
 
-	public String calculate() {
+	public void calculate() {
 		int totalEvoluteCnt = 0, maxEvoluteCnt = 0;
 		String maxEvolutedPokemonName = "";
 
@@ -79,8 +79,9 @@ public class Main extends Algorithm {
 			}
 		}
 		
+		System.out.println(totalEvoluteCnt);
+		System.out.println(maxEvolutedPokemonName);
 		
-		return totalEvoluteCnt + "\r\n" + maxEvolutedPokemonName;
 	}
 	
 	private int getEvoluteCnt(int K, int M) {
@@ -118,7 +119,7 @@ public class Main extends Algorithm {
 	public static void main(String[] args) throws Exception  {
 		try {
 			Main main = new Main();
-			System.out.println(main.calculate());
+			main.calculate();
 		} catch(InputException e) {
 			System.out.println("[Runtime Exception] ".concat(e.getMessage()));
 		}
