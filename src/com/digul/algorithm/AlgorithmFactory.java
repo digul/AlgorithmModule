@@ -13,9 +13,14 @@ public  enum AlgorithmFactory {
 			return new com.digul.algorithm.worm_virus.Main("D:\\file\\worm_virus.txt");
 		}
 	},
-	POKEMON{
+	POKEMON {
 		public Algorithm getAlgorithm() throws Exception {
 			return new com.digul.algorithm.pokemon.Main("D:\\file\\pokemon.txt");
+		}
+	},
+	FIREBUG {
+		public Algorithm getAlgorithm() throws Exception {
+			return new com.digul.algorithm.firebug.Main("D:\\file\\firebug.txt");
 		}
 	};
 	
